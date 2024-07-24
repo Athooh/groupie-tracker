@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <title>Locations</title>
+</head>
+<body>
+    <h1>Locations</h1>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/artists">Artists</a></li>
+            <li><a href="/locations">Locations</a></li>
+            <li><a href="/dates">Dates</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        {{range .Locations}}
+        <div class="card">
+            <p>{{.}}</p>
+        </div>
+        {{end}}
+    </div>
+</body>
+</html>
