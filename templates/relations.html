@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <title>Relations</title>
+</head>
+<body>
+    <header>
+        <h1>Groupie Trackers - Relations</h1>
+        <nav>
+            <a href="/artists">Artists</a>
+            <a href="/locations">Locations</a>
+            <a href="/dates">Dates</a>
+            <a href="/relations">Relations</a>
+        </nav>
+    </header>
+    <main id="content">
+        <h2>Relations</h2>
+        <div id="relations-container">
+            {{range .}}
+            <div class="relation">
+                <h3>Relation ID: {{.ID}}</h3>
+                {{range $date, $locations := .DatesLocations}}
+                <p><strong>{{$date}}:</strong> {{$locations}}</p>
+                {{end}}
+            </div>
+            {{end}}
+        </div>
+    </main>
+</body>
+</html>

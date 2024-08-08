@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <title>Dates</title>
+</head>
+<body>
+    <header>
+        <h1>Groupie Trackers - Dates</h1>
+        <nav>
+            <a href="/artists">Artists</a>
+            <a href="/locations">Locations</a>
+            <a href="/dates">Dates</a>
+            <a href="/relations">Relations</a>
+        </nav>
+    </header>
+    <main id="content">
+        <h2>Dates</h2>
+        <div id="dates-container">
+            {{range .}}
+            <div class="date">
+                <h3>Date ID: {{.ID}}</h3>
+                <p>Dates: {{.Dates}}</p>
+            </div>
+            {{end}}
+        </div>
+    </main>
+</body>
+</html>

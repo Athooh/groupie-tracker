@@ -1,23 +1,29 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 
-	"github.com/Athooh/groupie-tracker/internal/handlers"
+	"github.com/Athooh/groupie-tracker/internal/api"
 )
 
 func main() {
-	fs := http.FileServer(http.Dir("./web/static"))
+	err := api.InitData()
+	if err != nil {
+		log.Fatalf("Error initializing data: %v", err)
+	}
+
+	http.HandleFunc("/", api.IndexHandler)
+	http.HandleFunc("/artists", api.ArtistsHandler)
+	http.HandleFunc("/locations", api.LocationsHandler)
+	http.HandleFunc("/dates", api.DatesHandler)
+	http.HandleFunc("/relations", api.RelationsHandler)
+
+	// Serve static files
+	fs := http.FileServer(http.Dir("./static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
-	// Route handlers
-	http.HandleFunc("/", handlers.HomeHandler)
-	http.HandleFunc("/artists", handlers.ArtistsHandler)
-	http.HandleFunc("/locations", handlers.LocationsHandler)
-	http.HandleFunc("/dates", handlers.DatesHandler)
-
-	// Start the server
-	log.Println("Starting server on :8080")
+	fmt.Println("Server is running on port localhost:8080")
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
