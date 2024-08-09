@@ -24,7 +24,7 @@
             {{range .}}
             <div class="date">
                 <h3>Date ID: {{.ID}}</h3>
-                <p>Dates: {{.Dates}}</p>
+                <p>Dates: {{Join .Dates ", "}}</p>
             </div>
             {{end}}
         </div>

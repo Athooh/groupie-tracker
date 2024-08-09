@@ -24,7 +24,7 @@
             {{range .}}
             <div class="location">
                 <h3>Location ID: {{.ID}}</h3>
-                <p>Locations: {{.Locations}}</p>
+                <p>Locations: {{Join .Locations ", "}}</p>
             </div>
             {{end}}
         </div>

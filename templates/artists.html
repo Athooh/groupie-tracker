@@ -24,10 +24,12 @@
             {{range .}}
             <div class="card artist">
                 <img src="{{.Image}}" alt="{{.Name}}">
+                <div class="card-content">
                 <h3>{{.Name}}</h3>
                 <p>First Album: {{.FirstAlbum}}</p>
                 <p>Creation Date: {{.CreationDate}}</p>
-                <p>Members: {{.Members}}</p>
+                <p>Members: {{Join .Members ", "}}</p>
+                </div>
             </div>
             {{end}}
         </div>

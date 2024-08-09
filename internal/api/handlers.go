@@ -2,6 +2,7 @@ package api
 
 import (
 	"net/http"
+	"strings"
 	"text/template"
 
 	"github.com/Athooh/groupie-tracker/internal/fetch"
@@ -15,7 +16,11 @@ var (
 	relationsData models.RelationsData
 )
 
-var templates = template.Must(template.ParseGlob("templates/*.html"))
+var templateFuncs = template.FuncMap{
+	"Join": strings.Join, // Register the Join function
+}
+
+var templates = template.Must(template.New("").Funcs(templateFuncs).ParseGlob("templates/*.html"))
 
 func InitData() error {
 	var err error
