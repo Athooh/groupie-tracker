@@ -25,7 +25,7 @@
             <div class="relation">
                 <h3>Relation ID: {{.ID}}</h3>
                 {{range $date, $locations := .DatesLocations}}
-                <p><strong>{{$date}}:</strong> {{$locations}}</p>
+                <p><strong>{{$date}}:</strong> {{Join $locations ", "}}</p>
                 {{end}}
             </div>
             {{end}}
