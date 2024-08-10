@@ -13,24 +13,18 @@
         <nav>
             <a href="/">Home</a>
             <a href="/artists">Artists</a>
-            <a href="/locations">Locations</a>
-            <a href="/dates">Dates</a>
-            <a href="/relations">Relations</a>
         </nav>
     </header>
     <main id="content">
         <h2>Artists</h2>
         <div id="artists-container">
             {{range .}}
-            <div class="card artist">
-                <img src="{{.Image}}" alt="{{.Name}}">
-                <div class="card-content">
-                <h3>{{.Name}}</h3>
-                <p>First Album: {{.FirstAlbum}}</p>
-                <p>Creation Date: {{.CreationDate}}</p>
-                <p>Members: {{Join .Members ", "}}</p>
+            <a href="/artist/{{.ID}}">
+                <div class="card">
+                    <img src="{{.Image}}" alt="{{.Name}}">
+                        <h3>{{.Name}}</h3>
                 </div>
-            </div>
+            </a>
             {{end}}
         </div>
     </main>

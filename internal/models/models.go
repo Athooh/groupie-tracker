@@ -36,3 +36,10 @@ type Relation struct {
 type RelationsData struct {
 	Index []Relation `json:"index"`
 }
+
+type ArtistDetail struct {
+	Artist    Artist
+	Locations Location
+	Dates     Date
+	Relations Relation
+}

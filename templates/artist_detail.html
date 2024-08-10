@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>{{.Artist.Name}}</title>
+</head>
+<body>
+    <header>
+        <h1><img src="/static/images/trumpet.png" alt="trumpet"> Groupie Trackers - {{.Artist.Name}}</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/artists">Artists</a>
+        </nav>
+    </header>
+    <main id="content">
+        <div class="artist-details">
+            <img src="{{.Artist.Image}}" alt="{{.Artist.Name}}">
+            <h2>{{.Artist.Name}}</h2>
+            <p><strong>First Album:</strong> {{.Artist.FirstAlbum}}</p>
+            <p><strong>Creation Date:</strong> {{.Artist.CreationDate}}</p>
+            <p><strong>Members:</strong> {{Join .Artist.Members ", "}}</p>
+            <h3>Locations</h3>
+            <ul>
+                {{range .Locations.Locations}}
+                <li>{{.}}</li>
+                {{end}}
+            </ul>
+            <h3>Dates</h3>
+            <ul>
+                {{range .Dates.Dates}}
+                <li>{{.}}</li>
+                {{end}}
+            </ul>
+            <h3>Relations</h3>
+            <ul>
+                {{range $date, $locations := .Relations.DatesLocations}}
+                <li>{{Join $locations ", "}} ({{$date}})</li>
+                {{end}}
+            </ul>
+        </div>
+    </main>
+</body>
+</html>

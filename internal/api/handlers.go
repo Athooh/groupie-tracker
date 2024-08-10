@@ -2,6 +2,7 @@ package api
 
 import (
 	"net/http"
+	"strconv"
 	"strings"
 	"text/template"
 
@@ -42,22 +43,38 @@ func ArtistsHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func LocationsHandler(w http.ResponseWriter, r *http.Request) {
-	err := templates.ExecuteTemplate(w, "locations.html", locationsData.Index)
+func ArtistDetailHandler(w http.ResponseWriter, r *http.Request) {
+	// Get artist ID from URL and convert to integer
+	idStr := strings.TrimPrefix(r.URL.Path, "/artist/")
+	id, err := strconv.Atoi(idStr)
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		http.Error(w, "Invalid artist ID", http.StatusBadRequest)
+		return
 	}
-}
 
-func DatesHandler(w http.ResponseWriter, r *http.Request) {
-	err := templates.ExecuteTemplate(w, "dates.html", datesData.Index)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+	// Find artist by ID
+	var artistDetail models.ArtistDetail
+	found := false
+	for _, artist := range artists {
+		if artist.ID == id {
+			artistDetail = models.ArtistDetail{
+				Artist:    artist,
+				Locations: locationsData.Index[id],
+				Dates:     datesData.Index[id],
+				Relations: relationsData.Index[id],
+			}
+			found = true
+			break
+		}
 	}
-}
 
-func RelationsHandler(w http.ResponseWriter, r *http.Request) {
-	err := templates.ExecuteTemplate(w, "relations.html", relationsData.Index)
+	if !found {
+		http.NotFound(w, r)
+		return
+	}
+
+	// Render the artist detail template
+	err = templates.ExecuteTemplate(w, "artist_detail.html", artistDetail)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
