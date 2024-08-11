@@ -22,24 +22,33 @@
             <p><strong>First Album:</strong> {{.Artist.FirstAlbum}}</p>
             <p><strong>Creation Date:</strong> {{.Artist.CreationDate}}</p>
             <p><strong>Members:</strong> {{Join .Artist.Members ", "}}</p>
+            <div class="artist-events">
+                <div class="event-location">
             <h3>Locations</h3>
             <ul>
                 {{range .Locations.Locations}}
                 <li>{{.}}</li>
                 {{end}}
             </ul>
+            </div>
+            <div class="event-date">
             <h3>Dates</h3>
             <ul>
                 {{range .Dates.Dates}}
                 <li>{{.}}</li>
                 {{end}}
             </ul>
+            </div>
+            </div>
             <h3>Relations</h3>
             <ul>
                 {{range $date, $locations := .Relations.DatesLocations}}
                 <li>{{Join $locations ", "}} ({{$date}})</li>
                 {{end}}
             </ul>
+            <div class="call-to-action">
+                <a href="/artists">Find more artists</a>
+                </div>
         </div>
     </main>
 </body>
