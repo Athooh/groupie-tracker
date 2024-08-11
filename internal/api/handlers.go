@@ -52,25 +52,21 @@ func ArtistDetailHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Find artist by ID
-	var artistDetail models.ArtistDetail
-	found := false
-	for _, artist := range artists {
-		if artist.ID == id {
-			artistDetail = models.ArtistDetail{
-				Artist:    artist,
-				Locations: locationsData.Index[id],
-				Dates:     datesData.Index[id],
-				Relations: relationsData.Index[id],
-			}
-			found = true
-			break
-		}
-	}
+	// Adjust for zero-based index
+	index := id - 1
 
-	if !found {
+	// Ensure the index is within the valid range of your data
+	if index < 0 || index >= len(artists) {
 		http.NotFound(w, r)
 		return
+	}
+
+	// Find artist by ID
+	artistDetail := models.ArtistDetail{
+		Artist:    artists[index],
+		Locations: locationsData.Index[index],
+		Dates:     datesData.Index[index],
+		Relations: relationsData.Index[index],
 	}
 
 	// Render the artist detail template
