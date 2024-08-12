@@ -43,3 +43,8 @@ type ArtistDetail struct {
 	Dates     Date
 	Relations Relation
 }
+
+type ErrorDetail struct {
+	Title   string
+	Message string
+}

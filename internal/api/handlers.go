@@ -75,3 +75,26 @@ func ArtistDetailHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 }
+
+// Custom error handler
+func ErrorHandler(w http.ResponseWriter, r *http.Request, statusCode int, message string) {
+	w.WriteHeader(statusCode)
+	errDetail := models.ErrorDetail{
+		Title:   http.StatusText(statusCode),
+		Message: message,
+	}
+	err := templates.ExecuteTemplate(w, "error.html", errDetail)
+	if err != nil {
+		http.Error(w, "Could not load custom error page", http.StatusInternalServerError)
+	}
+}
+
+// 404 Not Found error handler
+func NotFoundHandler(w http.ResponseWriter, r *http.Request) {
+	ErrorHandler(w, r, http.StatusNotFound, "Sorry, the page you are looking for cannot be found.")
+}
+
+// 500 Internal Server Error handler
+func InternalServerErrorHandler(w http.ResponseWriter, r *http.Request) {
+	ErrorHandler(w, r, http.StatusInternalServerError, "Oops! Something went wrong on our end. Please try again later.")
+}

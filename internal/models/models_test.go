@@ -1,11 +1,20 @@
 package models
 
 import (
+	"reflect"
 	"testing"
 )
 
-// Test for the Artist model
 func TestArtist(t *testing.T) {
+	expectedArtist := Artist{
+		ID:           1,
+		Image:        "image_url",
+		Name:         "Artist 1",
+		Members:      []string{"Member 1", "Member 2"},
+		CreationDate: 1990,
+		FirstAlbum:   "First Album",
+	}
+
 	artist := Artist{
 		ID:           1,
 		Image:        "image_url",
@@ -15,28 +24,22 @@ func TestArtist(t *testing.T) {
 		FirstAlbum:   "First Album",
 	}
 
-	if artist.ID != 1 {
-		t.Errorf("expected ID to be 1, got %v", artist.ID)
+	if !reflect.DeepEqual(artist, expectedArtist) {
+		t.Errorf("expected %v, got %v", expectedArtist, artist)
 	}
 
-	if artist.Image != "image_url" {
-		t.Errorf("expected Image to be 'image_url', got %v", artist.Image)
+	// Negative test case
+	invalidArtist := Artist{
+		ID:           2,
+		Image:        "wrong_url",
+		Name:         "Wrong Artist",
+		Members:      []string{"Wrong Member"},
+		CreationDate: 2000,
+		FirstAlbum:   "Wrong Album",
 	}
 
-	if artist.Name != "Artist 1" {
-		t.Errorf("expected Name to be 'Artist 1', got %v", artist.Name)
-	}
-
-	if len(artist.Members) != 2 {
-		t.Errorf("expected 2 members, got %v", len(artist.Members))
-	}
-
-	if artist.CreationDate != 1990 {
-		t.Errorf("expected CreationDate to be 1990, got %v", artist.CreationDate)
-	}
-
-	if artist.FirstAlbum != "First Album" {
-		t.Errorf("expected FirstAlbum to be 'First Album', got %v", artist.FirstAlbum)
+	if reflect.DeepEqual(artist, invalidArtist) {
+		t.Errorf("expected structs to be different, but they are equal")
 	}
 }
 
