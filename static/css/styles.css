@@ -23,6 +23,7 @@ header {
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
+    border-bottom: 6px solid red;
 }
 
 header img {
@@ -38,6 +39,10 @@ header h1 {
 
 header nav {
     margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 header nav a {
@@ -70,14 +75,19 @@ main {
     list-style: none;
 }
 
-.card, .location, .date, .relation {
+.card {
     background: rgba(255, 255, 255, 0.7);
     /* opacity: .5; */
-    border: 1px solid #ddd;
+    /* border: 1px solid #ddd; */
     border-radius: 5px;
     padding: 15px;
     flex: 1 1 calc(33% - 40px);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    background: red;
+    color: #fff;
 }
 
 .card-content {
@@ -92,13 +102,17 @@ main {
     /* margin-bottom: 10px; */
 }
 
-.card h3, .location h3, .date h3, .relation h3 {
+.card h3 {
     margin-top: 0;
     margin-bottom: 10px;
     font-size: 1.1em;
     color: #000;
     text-decoration: none;
     /* max-width: 100%; */
+}
+
+.card h3:hover {
+    color: #fff;
 }
 
 .card p, .location p, .date p, .relation p {
@@ -155,6 +169,36 @@ main {
     border-radius: 10px;
     padding: 50px;
 }
+
+/* search-bar */
+#search-bar {
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 25px;
+    width: 200px;
+}
+
+#search-results {
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    max-height: 200px;
+    overflow-y: auto;
+    width: 200px;
+    z-index: 1000;
+    margin-left: 10px;
+    border-radius: 6px;
+}
+
+.search-result-item {
+    padding: 5px;
+    cursor: pointer;
+}
+
+.search-result-item:hover {
+    background-color: #ddd;
+}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {

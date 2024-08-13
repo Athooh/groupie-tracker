@@ -17,8 +17,7 @@ func main() {
 	http.HandleFunc("/", api.IndexHandler)
 	http.HandleFunc("/artists", api.ArtistsHandler)
 	http.HandleFunc("/artist/", api.ArtistDetailHandler)
-	http.HandleFunc("/404", api.NotFoundHandler)
-	http.HandleFunc("/500", api.InternalServerErrorHandler)
+	http.HandleFunc("/search", api.SearchHandler)
 
 	// Serve static files
 	fs := http.FileServer(http.Dir("./static"))

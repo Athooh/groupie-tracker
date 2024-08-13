@@ -13,6 +13,10 @@
         <nav>
             <a href="/">Home</a>
             <a href="/artists">Artists</a>
+            <div class="search">
+                <input type="text" id="search-bar" oninput="searchArtists(this.value)" placeholder="Search artists...">
+                <div id="search-results"></div>
+            </div>
         </nav>
     </header>
     <main id="content">
@@ -51,5 +55,6 @@
                 </div>
         </div>
     </main>
+    <script src="/static/js/scripts.js"></script>
 </body>
 </html>

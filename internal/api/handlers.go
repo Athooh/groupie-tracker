@@ -1,6 +1,7 @@
 package api
 
 import (
+	"encoding/json"
 	"net/http"
 	"strconv"
 	"strings"
@@ -76,25 +77,22 @@ func ArtistDetailHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-// Custom error handler
-func ErrorHandler(w http.ResponseWriter, r *http.Request, statusCode int, message string) {
-	w.WriteHeader(statusCode)
-	errDetail := models.ErrorDetail{
-		Title:   http.StatusText(statusCode),
-		Message: message,
-	}
-	err := templates.ExecuteTemplate(w, "error.html", errDetail)
-	if err != nil {
-		http.Error(w, "Could not load custom error page", http.StatusInternalServerError)
-	}
-}
+func SearchHandler(w http.ResponseWriter, r *http.Request) {
+	query := strings.ToLower(r.URL.Query().Get("q"))
+	var results []map[string]string
 
-// 404 Not Found error handler
-func NotFoundHandler(w http.ResponseWriter, r *http.Request) {
-	ErrorHandler(w, r, http.StatusNotFound, "Sorry, the page you are looking for cannot be found.")
-}
+	if query != "" {
+		for _, artist := range artists {
+			types := artist.SearchResultType(query)
+			for _, resultType := range types {
+				results = append(results, map[string]string{
+					"name": resultType,
+					"id":   strconv.Itoa(artist.ID),
+				})
+			}
+		}
+	}
 
-// 500 Internal Server Error handler
-func InternalServerErrorHandler(w http.ResponseWriter, r *http.Request) {
-	ErrorHandler(w, r, http.StatusInternalServerError, "Oops! Something went wrong on our end. Please try again later.")
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(results)
 }

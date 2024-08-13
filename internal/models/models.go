@@ -1,5 +1,10 @@
 package models
 
+import (
+	"strconv"
+	"strings"
+)
+
 type Artist struct {
 	ID           int      `json:"id"`
 	Image        string   `json:"image"`
@@ -47,4 +52,44 @@ type ArtistDetail struct {
 type ErrorDetail struct {
 	Title   string
 	Message string
+}
+
+func (a Artist) SearchResultType(query string) []string {
+	var resultTypes []string
+	lowerQuery := strings.ToLower(query)
+
+	// Check if query matches the artist/band name
+	if strings.Contains(strings.ToLower(a.Name), lowerQuery) {
+		resultTypes = append(resultTypes, a.Name+" - artist/band")
+	}
+
+	// Check if query matches any band member's name
+	for _, member := range a.Members {
+		if strings.Contains(strings.ToLower(member), lowerQuery) {
+			resultTypes = append(resultTypes, member+" - member of "+a.Name)
+		}
+	}
+
+	// Check if query matches the first album name
+	if strings.Contains(strings.ToLower(a.FirstAlbum), lowerQuery) {
+		resultTypes = append(resultTypes, a.FirstAlbum+" - first album date of "+a.Name)
+	}
+
+	// Check if query matches the creation date
+	if strings.Contains(strconv.Itoa(a.CreationDate), lowerQuery) {
+		resultTypes = append(resultTypes, strconv.Itoa(a.CreationDate)+" - creation date of "+a.Name)
+	}
+
+	return resultTypes
+}
+
+func SearchArtists(query string, artists []Artist) []string {
+	var suggestions []string
+
+	for _, artist := range artists {
+		resultTypes := artist.SearchResultType(query)
+		suggestions = append(suggestions, resultTypes...)
+	}
+
+	return suggestions
 }
