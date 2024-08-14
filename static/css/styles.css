@@ -163,6 +163,11 @@ main {
     transition: 2s;
 }
 
+.err-msg p {
+    color: #fff;
+    font-size: 25px;
+}
+
 .artist-details {
     background: rgba(255, 255, 255, 0.7);
     width: 80%;

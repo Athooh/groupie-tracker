@@ -30,17 +30,29 @@ func InitData() error {
 	return err
 }
 
+func RenderError(w http.ResponseWriter, status int, message string) {
+	w.WriteHeader(status)
+	errDetail := models.ErrorDetail{
+		Title:   http.StatusText(status),
+		Message: message,
+	}
+	err := templates.ExecuteTemplate(w, strconv.Itoa(status)+".html", errDetail)
+	if err != nil {
+		http.Error(w, "An error occurred - Bad request", http.StatusInternalServerError)
+	}
+}
+
 func IndexHandler(w http.ResponseWriter, r *http.Request) {
 	err := templates.ExecuteTemplate(w, "index.html", nil)
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		RenderError(w, http.StatusInternalServerError, err.Error())
 	}
 }
 
 func ArtistsHandler(w http.ResponseWriter, r *http.Request) {
 	err := templates.ExecuteTemplate(w, "artists.html", artists)
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		RenderError(w, http.StatusInternalServerError, err.Error())
 	}
 }
 
@@ -49,7 +61,7 @@ func ArtistDetailHandler(w http.ResponseWriter, r *http.Request) {
 	idStr := strings.TrimPrefix(r.URL.Path, "/artist/")
 	id, err := strconv.Atoi(idStr)
 	if err != nil {
-		http.Error(w, "Invalid artist ID", http.StatusBadRequest)
+		RenderError(w, http.StatusBadRequest, "Invalid artist ID")
 		return
 	}
 
@@ -58,7 +70,7 @@ func ArtistDetailHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Ensure the index is within the valid range of your data
 	if index < 0 || index >= len(artists) {
-		http.NotFound(w, r)
+		RenderError(w, http.StatusNotFound, "Artist not found")
 		return
 	}
 
@@ -73,7 +85,7 @@ func ArtistDetailHandler(w http.ResponseWriter, r *http.Request) {
 	// Render the artist detail template
 	err = templates.ExecuteTemplate(w, "artist_detail.html", artistDetail)
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		RenderError(w, http.StatusInternalServerError, err.Error())
 	}
 }
 

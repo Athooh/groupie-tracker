@@ -14,7 +14,15 @@ func main() {
 		log.Fatalf("Error initializing data: %v", err)
 	}
 
-	http.HandleFunc("/", api.IndexHandler)
+	// Handle the root path "/"
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path == "/" {
+			api.IndexHandler(w, r)
+		} else {
+			api.RenderError(w, http.StatusNotFound, "Page not found")
+		}
+	})
+
 	http.HandleFunc("/artists", api.ArtistsHandler)
 	http.HandleFunc("/artist/", api.ArtistDetailHandler)
 	http.HandleFunc("/search", api.SearchHandler)
