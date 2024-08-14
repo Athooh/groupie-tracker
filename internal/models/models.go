@@ -80,6 +80,11 @@ func (a Artist) SearchResultType(query string) []string {
 		resultTypes = append(resultTypes, strconv.Itoa(a.CreationDate)+" - creation date of "+a.Name)
 	}
 
+	// // Check if query matches the location
+	// if strings.Contains(strconv.Itoa(a.location), lowerQuery) {
+	// 	resultTypes
+	// }
+
 	return resultTypes
 }
 
