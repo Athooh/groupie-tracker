@@ -8,23 +8,26 @@
     <title>Groupie Trackers</title>
 </head>
 <body>
-    <header>
-        <h1><img src="/static/images/trumpet.png" alt="trumpet"> Groupie Trackers</h1>
-        <nav>
-            <a href="/artists">Artists</a>
-            <div class="search">
-                <input type="text" id="search-bar" oninput="searchArtists(this.value)" placeholder="Search artists...">
-                <div id="search-results"></div>
-            </div>
-        </nav>
-    </header>
-    <main id="content">
+    <div class="hero-container">
+        <header>
+            <h1><img src="/static/images/headphone1.png" alt="trumpet"> Groupie Trackers</h1>
+            <nav>
+                <a href="/artists">Artists</a>
+                <div class="search">
+                    <input type="text" id="search-bar" oninput="searchArtists(this.value)" placeholder="Search artists...">
+                    <div id="search-results"></div>
+                </div>
+            </nav>
+        </header>
         <h2>Welcome to Groupie Trackers!</h2>
         <p><span>We track your favorite artists so you can keep your groove on!</span></p>
         <div class="call-to-action">
-        <a href="/artists">Find your artist</a>
+            <a href="/artists">Find your artist</a>
         </div>
-    </main>
+    </div>
+    <div class="artist-slide">
+            <h2>have fun picking your favorite destination.</h2>
+    </div>
     <script src="/static/js/scripts.js"></script>
 </body>
 </html>
