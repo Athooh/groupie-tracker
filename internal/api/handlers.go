@@ -2,6 +2,7 @@ package api
 
 import (
 	"encoding/json"
+	"log"
 	"net/http"
 	"strconv"
 	"strings"
@@ -56,6 +57,39 @@ func ArtistsHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// func ArtistDetailHandler(w http.ResponseWriter, r *http.Request) {
+// 	// Get artist ID from URL and convert to integer
+// 	idStr := strings.TrimPrefix(r.URL.Path, "/artist/")
+// 	id, err := strconv.Atoi(idStr)
+// 	if err != nil {
+// 		RenderError(w, http.StatusBadRequest, "Invalid artist ID")
+// 		return
+// 	}
+
+// 	// Adjust for zero-based index
+// 	index := id - 1
+
+// 	// Ensure the index is within the valid range of your data
+// 	if index < 0 || index >= len(artists) {
+// 		RenderError(w, http.StatusNotFound, "Artist not found")
+// 		return
+// 	}
+
+// 	// Find artist by ID
+// 	artistDetail := models.ArtistDetail{
+// 		Artist:    artists[index],
+// 		Locations: locationsData.Index[index],
+// 		Dates:     datesData.Index[index],
+// 		Relations: relationsData.Index[index],
+// 	}
+
+// 	// Render the artist detail template
+// 	err = templates.ExecuteTemplate(w, "artist_detail.html", artistDetail)
+// 	if err != nil {
+// 		RenderError(w, http.StatusInternalServerError, err.Error())
+// 	}
+// }
+
 func ArtistDetailHandler(w http.ResponseWriter, r *http.Request) {
 	// Get artist ID from URL and convert to integer
 	idStr := strings.TrimPrefix(r.URL.Path, "/artist/")
@@ -82,6 +116,13 @@ func ArtistDetailHandler(w http.ResponseWriter, r *http.Request) {
 		Relations: relationsData.Index[index],
 	}
 
+	// Logging for debugging purposes
+	log.Printf("Artist ID: %d", id)
+	log.Printf("Artist Name: %s", artistDetail.Artist.Name)
+	log.Printf("Locations: %v", artistDetail.Locations.Locations)
+	log.Printf("Dates: %v", artistDetail.Dates.Dates)
+	log.Printf("Relations: %v", artistDetail.Relations.DatesLocations)
+
 	// Render the artist detail template
 	err = templates.ExecuteTemplate(w, "artist_detail.html", artistDetail)
 	if err != nil {
@@ -105,7 +146,6 @@ func SearchHandler(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-		w.Header().Set("Content-Type", "application/json")
-		json.NewEncoder(w).Encode(results)
-	}
-
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(results)
+}
