@@ -7,9 +7,6 @@ body {
     padding: 0;
     color: #000000;
     background: linear-gradient(to right, #1f0021, #751006);
-
-    /* background: linear-gradient(to right, #FF0000, #000000, #8B4513); */
-
 }
 
 /* Header and Navigation */
@@ -365,13 +362,6 @@ main {
     font-size: 25px;
 }
 
-/* .artist-details {
-    background: rgba(255, 255, 255, 0.7);
-    width: 80%;
-    border-radius: 10px;
-    padding: 50px;
-} */
-
 .artist-details {
     width: 1000px;
     margin: 0 auto;
@@ -440,20 +430,27 @@ main {
 }
 
 /* Call to action button styling */
-.artist-details .call-to-action a {
-    /* display: inline-block; */
-    /* padding: 10px 20px;
-    margin-top: 20px;
-    background-color: #333;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px; */
-    float: left;
+.artist-details .call-to-action-btn {
+    margin-left: 0;
+    margin-block: 20px;
 }
 
-/* .call-to-action a:hover {
-    background-color: #555;
-} */
+.artist-details .call-to-action-btn a {
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 25px;
+    letter-spacing: .6em;
+    text-transform: capitalize;
+    background-color: red;
+}
+
+.artist-details .call-to-action-btn a:hover {
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    background-color: transparent;
+    transition: 2s;
+}
+
 
 /* search-bar */
 #search-bar {
