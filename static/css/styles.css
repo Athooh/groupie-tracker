@@ -5,7 +5,6 @@ body {
     font-family: "poppins", sans-serif;
     margin: 0;
     padding: 0;
-    /* background-color: #f4f4f4; */
     color: #000000;
     background: linear-gradient(to right, #1f0021, #751006);
 
@@ -31,7 +30,7 @@ header img {
     width: 50px;
 }
 
-header h1 {
+header h1, .footer h1 {
     margin: 0;
     font-family: "Jacquard 12", system-ui;
     font-weight: 400;
@@ -84,7 +83,7 @@ header nav a:hover {
     font-family: "Rock Salt", cursive;
     font-weight: 400;
     font-style: normal;
-    margin-top: 80px;
+    margin-top: 120px;
     margin-bottom: 30px;
 }
 
@@ -116,14 +115,146 @@ header nav a:hover {
     transition: 2s;
 }
 
-.artist-slide {
-    margin-block: 0px;
-    height: 50vh;
+.artist-bunnar {
+    height: 20vh;
     background: linear-gradient(to right, #1f0021, #751006);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
 }
 
-.artist-slide h2 {
-    margin-top: 0;
+.artist-bunnar h2 {
+    color: #fff;
+    font-size: 35px;
+    text-transform: capitalize;
+    font-weight: 400;
+    text-align: center;
+}
+
+.artist-bunnar a {
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 25px;
+    letter-spacing: .6em;
+    text-transform: capitalize;
+    background-color: red;
+}
+
+.artist-bunnar a:hover {
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    background-color: transparent;
+    transition: 2s;
+}
+
+.content-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    /* background-color: #f9f9f9; */
+    margin-top: 30px;
+    color: #fff;
+    padding-inline: 200px;
+    background: linear-gradient(to right, #7f0012, #1b0a07);
+    /* background-image: url('/static/images/mixer.jpg');
+    background-size:auto;
+    background-repeat: no-repeat; */
+}
+
+.content-section img {
+    width: 50%;
+    border-radius: 10px;
+}
+
+.content-text {
+    width: 45%;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.content-text h2 {
+    margin-bottom: 0;
+    font-weight: 400;
+    font-size: 35px;
+}
+
+.stats-section {
+    padding: 50px;
+    /* background-color: #eef2f3; */
+    text-align: center;
+
+}
+
+.stats-section .line, .content-text .line {
+    width: 200px;
+    border: 2px solid #fff;
+    margin: 10px auto;
+}
+
+.content-text .line {
+    margin-left: 0;
+}
+
+.stats-section h2 {
+    color: #fff;
+    font-size: 35px;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 180px;
+}
+
+.stat-item {
+    width: 20%;
+    color: #fff;
+}
+
+.stat-item span {
+    font-size: 45px;
+    font-weight: 700;
+}
+
+.stat-item h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.progress-bar {
+    /* background-color: #ddd; */
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid #fff;
+}
+
+.progress-bar div {
+    height: 20px;
+    background-color: red;
+    width: 70%;
+}
+
+.footer {
+    padding: 20px 200px;
+    background: rgba(73, 46, 46, 0.479);
+    color: #fff;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.footer a i {
+    font-size: 18px;
+    color: #ddd;
 }
 /* Main Content */
 main {
@@ -145,9 +276,7 @@ main {
 }
 
 .card {
-    background: rgba(255, 255, 255, 0.7);
-    /* opacity: .5; */
-    /* border: 1px solid #ddd; */
+    border: 1px solid #ddd;
     border-radius: 5px;
     padding: 15px;
     flex: 1 1 calc(33% - 40px);
@@ -157,6 +286,7 @@ main {
 .card:hover {
     background: red;
     color: #fff;
+    transition: 3s;
 }
 
 .card-content {
@@ -168,16 +298,14 @@ main {
     width: 100%;
     max-width: 100%;
     border-radius: 5px;
-    /* margin-bottom: 10px; */
 }
 
 .card h3 {
     margin-top: 0;
     margin-bottom: 10px;
     font-size: 1.1em;
-    color: #000;
+    color: #ddd;
     text-decoration: none;
-    /* max-width: 100%; */
 }
 
 .card h3:hover {

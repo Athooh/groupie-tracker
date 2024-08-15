@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Artists</title>
 </head>
 <body>
@@ -12,6 +13,8 @@
         <nav>
             <a href="/">Home</a>
             <a href="/artists">Artists</a>
+            <a href="/">Blog</a>
+            <a href="/">Contact</a>
             <div class="search">
                 <input type="text" id="search-bar" oninput="searchArtists(this.value)" placeholder="Search artists...">
                 <div id="search-results"></div>
@@ -31,6 +34,15 @@
             {{end}}
         </div>
     </main>
+    <div class="footer">
+        <h1><img src="/static/images/headphone1.png" alt="trumpet"> Groupie Trackers</h1>
+        <p>&copy; 2024 Groupie Trackers. All rights reserved.</p>
+        <p>Follow us on:
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+        </p>
+    </div>
     <script src="/static/js/scripts.js"></script>
 </body>
 </html>
