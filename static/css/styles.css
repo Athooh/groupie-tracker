@@ -114,11 +114,14 @@ header nav a:hover {
 
 .artist-bunnar {
     height: 20vh;
-    background: linear-gradient(to right, #1f0021, #751006);
+    /* background: linear-gradient(to right, #1f0021, #751006); */
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 50px;
+    background-image: url('/static/images/fire.png');
+    background-position: center;
+    background-size: contain;
 }
 
 .artist-bunnar h2 {
