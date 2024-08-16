@@ -35,3 +35,19 @@ function searchArtists(query) {
         })
         .catch(error => console.error('Error:', error));
 }
+
+// Add a script to handle the toggle functionality for the search bar and navigation links.
+document.addEventListener("DOMContentLoaded", function () {
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+    const searchIcon = document.querySelector(".search-icon");
+    const search = document.querySelector(".search");
+
+    hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+    });
+
+    searchIcon.addEventListener("click", () => {
+        search.classList.toggle("active");
+    });
+});
