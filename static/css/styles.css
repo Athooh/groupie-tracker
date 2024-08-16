@@ -703,6 +703,7 @@ main {
         margin: 30 auto 0;
         flex-direction: column;
         padding-inline: 0;
+        bottom: 0;
     }
 
     .footer img {
