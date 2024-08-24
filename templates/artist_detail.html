@@ -8,86 +8,82 @@
     <title>{{.Artist.Name}}</title>
 </head>
 <body>
-    <header>
-        <h1><img src="/static/images/headphone1.png" alt="trumpet"> Groupie Trackers</h1>
-        <nav>
-            <a href="/">Home</a>
-            <a href="/artists">Artists</a>
-            <a href="/">Blog</a>
-            <a href="/">Contact</a>
-            <div class="search">
-                <input type="text" id="search-bar" oninput="searchArtists(this.value)" placeholder="Search artists...">
-                <div id="search-results"></div>
-            </div>
-        </nav>
-    </header>
-    <main id="content">
-        <div class="artist-details">
-            <img src="{{.Artist.Image}}" alt="{{.Artist.Name}}">
-            <h2>{{.Artist.Name}}</h2>
-            <p><strong>First Album:</strong> {{.Artist.FirstAlbum}}</p>
-            <p><strong>Creation Date:</strong> {{.Artist.CreationDate}}</p>
-            <p><strong>Members:</strong> {{Join .Artist.Members ", "}}</p>
-
-            <div class="details-columns">
-                <div class="details-column">
-                    <h3>Dates</h3>
-                    <table class="details-table">
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {{range .Dates.Dates}}
-                            <tr>
-                                <td>{{.}}</td>
-                            </tr>
-                            {{end}}
-                        </tbody>
-                    </table>
-                </div>
-                <div class="details-column">
-                    <h3>Locations</h3>
-                    <table class="details-table">
-                        <thead>
-                            <tr>
-                                <th>Location</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {{range .Locations.Locations}}
-                            <tr>
-                                <td>{{.}}</td>
-                            </tr>
-                            {{end}}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <h3>Relations</h3>
-            <table class="details-table">
-                <thead>
-                    <tr>
-                        <th>Locations</th>
-                        <th>Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{range $date, $locations := .Relations.DatesLocations}}
-                    <tr>
-                        <td>{{$date}}</td>
-                        <td>{{Join $locations ", "}}</td>
-                    </tr>
-                    {{end}}
-                </tbody>
-            </table>
-            <div class="call-to-action-btn">
-                <a href="/artists">Find more artists</a>
+    <section class="hero-banner">
+        <div class="overlay">
+            <div class="artist-details">
+                <img src="{{.Artist.Image}}" alt="{{.Artist.Name}}">
+                <h1 class="artist-name">{{.Artist.Name}}</h1>
+                <p class="creation-date">Creation Date: {{.Artist.CreationDate}}</p>
+                <p class="first-album">First Album: {{.Artist.FirstAlbum}}</p>
             </div>
         </div>
-    </main>
+    </section>
+
+    <!-- Artist Bio -->
+    <section class="artist-bio">
+        <h2>About the Artist</h2>
+        <p>Welcome to {{.Artist.Name}}'s official page! Since {{.Artist.CreationDate}}, {{.Artist.Name}} has captivated audiences worldwide with their distinctive sound blending Soul, HipHop, and Country. Starting their journey in [Hometown/Country], they achieved early success with their debut album {{.Artist.FirstAlbum}} and its hit single “[Single Title]”. Known for their innovative style and emotional lyrics, {{.Artist.Name}} has earned accolades including Grammy. Their electrifying live performances at venues like Detroit, New York, London showcase their exceptional talent. Currently, {{.Artist.Name}} is working on new projects and an upcoming tour. Stay updated on their latest music, news, and tour dates here and follow {{.Artist.Name}} on their Socials for more updates.</p>
+    </section>
+    <section class="album-container">
+    <div class="albums-members">
+        <div class="albums">
+            <img src="/static/images/record1.svg" alt="record image">
+            <p><strong>Fist Album:</strong> {{.Artist.FirstAlbum}}</p>
+        </div>
+        <div class="members">
+        <h2>{{.Artist.Name}} Members</h2>
+        <p><strong>Members:</strong> {{Join .Artist.Members ", "}}</p>
+        </div>
+    </div>
+   </section>
+
+   <!-- Tour Dates & Locations -->
+    <section class="tour-dates-locations-container">
+        <div class="tour-dates-locations">
+        <div class="tour-dates">
+            <h2>Tour Dates</h2>
+            <ul>
+                {{range .Dates.Dates}}
+                <li>{{.}}</li>
+                {{end}}
+            </ul>
+        </div>
+        <div class="locations">
+            <h2>Locations</h2>
+            <ul>
+                {{range .Locations.Locations}}
+                <li>{{.}}</li>
+                {{end}}
+            </ul>
+        </div>
+    </section>
+
+    <!-- Relations -->
+     <section class="relations">
+        <div class="relations-table">
+        <h2>Locations & Dates Relations</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Locations</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{range $date, $locations := .Relations.DatesLocations}}
+                <tr>
+                    <td>{{$date}}</td>
+                    <td>{{Join $locations ", "}}</td>
+                </tr>
+                {{end}}
+            </tbody>
+        </table>
+        </div>
+        <div class="call-to-action-btn">
+            <a href="/artists">Find more artists</a>
+        </div>
+    </section>
+  
     <div class="footer">
         <h1><img src="/static/images/headphone1.png" alt="trumpet"> Groupie Trackers</h1>
         <p>&copy; 2024 Groupie Trackers. All rights reserved.</p>
