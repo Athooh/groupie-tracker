@@ -34,10 +34,14 @@
         <div id="artists-container">
             {{range .}}
             <a href="/artist/{{.ID}}">
+             <!-- card 1 -->
                 <div class="card">
-                    <img src="{{.Image}}" alt="{{.Name}}">
+                    <img src="{{.Image}}" alt="{{.Name}}" class="card-img">
+                    <div class="card-overlay">
                         <h3>{{.Name}}</h3>
+                    </div>
                 </div>
+                
             </a>
             {{end}}
         </div>
