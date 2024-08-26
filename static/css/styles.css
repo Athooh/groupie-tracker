@@ -83,7 +83,7 @@ header nav a:hover {
 }
 .hero-container h2 {
     font-size: 45px;
-    color: #adb5bd;
+    color: #00b4d8;
     font-family: "Rock Salt", cursive;
     font-weight: 400;
     font-style: normal;
@@ -92,7 +92,7 @@ header nav a:hover {
 }
 
 .hero-container span {
-    color: #adb5bd;
+    color: #fca311;
     font-size: 26px;
     font-family: "Poppins", system-ui;
     font-weight: 300;
@@ -106,17 +106,19 @@ header nav a:hover {
 .hero-container .call-to-action a {
     padding: 15px 20px;
     text-decoration: none;
-    color: #fff;
+    color: #fca311;
     border-radius: 25px;
     letter-spacing: .6em;
     text-transform: capitalize;
-    background-color: #778da9;
+    background-color: transparent;
+    border: 1px solid #00b4d8;
 }
 
 .hero-container .call-to-action a:hover {
     border: 1px solid rgba(255, 255, 255, 0.7);
-    background-color: transparent;
+    background-color: #fca311;
     transition: 2s;
+    color: #fff;
 }
 
 .artist-bunnar {
@@ -128,7 +130,7 @@ header nav a:hover {
 }
 
 .artist-bunnar h2 {
-    color: #adb5bd;
+    color: #00b4d8;
     font-size: 35px;
     text-transform: capitalize;
     font-weight: 400;
@@ -138,17 +140,19 @@ header nav a:hover {
 .artist-bunnar a {
     padding: 15px 20px;
     text-decoration: none;
-    color: #fff;
+    color: #fca311;
     border-radius: 25px;
     letter-spacing: .6em;
     text-transform: capitalize;
-    background-color: #778da9;
+    background-color: transparent;
+    border: 1px solid #00b4d8;
 }
 
 .artist-bunnar a:hover {
     border: 1px solid rgba(255, 255, 255, 0.7);
-    background-color: transparent;
+    background-color: #fca311;
     transition: 2s;
+    color: #fff;
 }
 
 .content-section {
@@ -166,6 +170,10 @@ header nav a:hover {
 .content-section img {
     width: 50%;
     border-radius: 10px;
+}
+
+.content-section h2 {
+    color: #00b4d8;
 }
 
 .content-text {
@@ -187,7 +195,7 @@ header nav a:hover {
 
 .stats-section .line, .content-text .line {
     width: 200px;
-    border: 2px solid #adb5bd;
+    border: 2px solid #fca311;
     margin: 10px auto;
 }
 
@@ -196,7 +204,7 @@ header nav a:hover {
 }
 
 .stats-section h2 {
-    color: #adb5bd;
+    color: #00b4d8;
     font-size: 35px;
     font-weight: 400;
     margin-bottom: 0;
@@ -211,12 +219,13 @@ header nav a:hover {
 
 .stat-item {
     width: 20%;
-    color: #adb5bd;
+    color: #fca311;
 }
 
 .stat-item span {
     font-size: 45px;
     font-weight: 700;
+    color: #00b4d8;
 }
 
 .stat-item h3 {
@@ -320,7 +329,7 @@ main {
 
 #content h2 {
     font-size: 45px;
-    color: #adb5bd;
+    color: #00b4d8;
     font-family: "Rock Salt", cursive;
     font-weight: 400;
     font-style: normal;
