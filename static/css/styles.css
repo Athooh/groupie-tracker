@@ -396,6 +396,15 @@ section.hero-banner {
     justify-content: center;
 }
 
+.overlay p span {
+    color: #00b4d8;
+    font-weight: bold;
+}
+
+.overlay h1 {
+    color: #00b4d8;
+}
+
 .artist-details {
     text-align: center;
 }
@@ -534,19 +543,20 @@ section.hero-banner {
 .relations .call-to-action-btn a {
     padding: 15px 20px;
     text-decoration: none;
-    color: #fff;
+    color: #fca311;
     border-radius: 25px;
     letter-spacing: .6em;
     text-transform: capitalize;
-    background-color: #778da9;
+    background-color: transparent;
+    border: 1px solid #00b4d8;
 }
 
 .relations .call-to-action-btn a:hover {
     border: 1px solid rgba(255, 255, 255, 0.7);
-    background-color: transparent;
+    background-color: #fca311;
     transition: 2s;
+    color: #fff;
 } 
-
 
 /* search-bar */
 #search-bar {

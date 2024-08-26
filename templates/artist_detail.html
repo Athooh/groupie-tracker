@@ -13,8 +13,8 @@
             <div class="artist-details">
                 <img src="{{.Artist.Image}}" alt="{{.Artist.Name}}">
                 <h1 class="artist-name">{{.Artist.Name}}</h1>
-                <p class="creation-date">Creation Date: {{.Artist.CreationDate}}</p>
-                <p class="first-album">First Album: {{.Artist.FirstAlbum}}</p>
+                <p class="creation-date"><span>Creation Date:</span> {{.Artist.CreationDate}}</p>
+                <p class="first-album"><span>First Album:</span> {{.Artist.FirstAlbum}}</p>
             </div>
         </div>
     </section>
@@ -28,11 +28,11 @@
     <div class="albums-members">
         <div class="albums">
             <img src="/static/images/record1.svg" alt="record image">
-            <p><strong>Fist Album:</strong> {{.Artist.FirstAlbum}}</p>
+            <p><strong><samp>Fist Album:</samp></strong> {{.Artist.FirstAlbum}}</p>
         </div>
         <div class="members">
         <h2>{{.Artist.Name}} Members</h2>
-        <p><strong>Members:</strong> {{Join .Artist.Members ", "}}</p>
+        <p><strong><span>Members:</span></strong> {{Join .Artist.Members ", "}}</p>
         </div>
     </div>
    </section>
