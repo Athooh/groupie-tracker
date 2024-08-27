@@ -16,19 +16,18 @@ function searchArtists(query) {
                 resultItem.innerHTML = result.name;
 
                 resultItem.onclick = function() {
-                    // Redirect based on the type of result
-                    if (result.name.includes(" - member of ")) {
-                        let artistName = result.name.split(" - member of ")[1];
-                        fetch(`/search?q=${encodeURIComponent(artistName)}`)
-                            .then(response => response.json())
-                            .then(artistData => {
-                                if (artistData.length > 0) {
-                                    window.location.href = `/artist/${artistData[0].id}`;
-                                }
-                            });
-                    } else {
-                        window.location.href = `/artist/${result.id}`;
-                    }
+                    const artistId = result.id;
+
+                    // Fetch artist details for the popup
+                    fetch(`/artist/${artistId}`)
+                        .then(response => response.text())
+                        .then(html => {
+                            const popup = document.getElementById("artist-popup");
+                            const popupContent = document.getElementById("popup-artist-content");
+                            
+                            popupContent.innerHTML = html;
+                            popup.classList.remove("hidden");
+                        });
                 };
                 resultsContainer.appendChild(resultItem);
             });
@@ -36,24 +35,7 @@ function searchArtists(query) {
         .catch(error => console.error('Error:', error));
 }
 
-// Add a script to handle the toggle functionality for the search bar and navigation links.
-document.addEventListener("DOMContentLoaded", function () {
-    const hamburger = document.querySelector(".hamburger");
-    const navLinks = document.querySelector(".nav-links");
-    const searchIcon = document.querySelector(".search-icon");
-    const search = document.querySelector(".search");
-
-    hamburger.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-    });
-
-    searchIcon.addEventListener("click", () => {
-        search.classList.toggle("active");
-    });
-});
-
-// artist-detail pop-up feature
-
+// Existing popup functionality for artist detail pages
 document.addEventListener("DOMContentLoaded", function() {
     const artistLinks = document.querySelectorAll("#artists-container a");
     const popup = document.getElementById("artist-popup");
@@ -82,5 +64,22 @@ document.addEventListener("DOMContentLoaded", function() {
         if (event.target == popup) {
             popup.classList.add("hidden");
         }
+    });
+});
+
+
+// Add a script to handle the toggle functionality for the search bar and navigation links.
+document.addEventListener("DOMContentLoaded", function () {
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+    const searchIcon = document.querySelector(".search-icon");
+    const search = document.querySelector(".search");
+
+    hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+    });
+
+    searchIcon.addEventListener("click", () => {
+        search.classList.toggle("active");
     });
 });

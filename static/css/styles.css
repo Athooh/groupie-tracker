@@ -439,10 +439,15 @@ main {
     /* border-top: 1px solid #ddd; */
 }
 
-.album-container .albums-members, .tour-dates-locations {
+.album-container .albums-members {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+}
+
+.tour-dates-locations {
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .album-container .albums, .album-container .members, .tour-dates-locations .tour-dates, .tour-dates-locations .locations {
