@@ -588,8 +588,8 @@ main {
     position: relative;
     box-shadow: 
         0 18px 25px rgba(0, 225, 255, 0.795),  /* Bottom shadow, more concentrated */
-        -7px 0 17px rgba(0, 225, 255, 0.795), /* Left glare */
-        7px 0 17px rgba(0, 225, 255, 0.795),  /* Right glare */
+        -4px 0 13px rgba(0, 225, 255, 0.795), /* Left glare */
+        4px 0 13px rgba(0, 225, 255, 0.795),  /* Right glare */
         0 6px 13px rgba(0, 225, 255, 0.795);  /* top glare */ 
 }
 

@@ -15,11 +15,12 @@
                     <div class="nav-links">
                         <a href="/artists">Artists</a>
                     </div>
-                                        <!-- Add this to your index.html header or wherever appropriate -->
-                        <div class="search">
-                            <input type="text" id="search-bar" oninput="searchArtists(this.value)" placeholder="Search artists...">
+                    <!-- Add this to your index.html header or wherever appropriate -->
+                       <div class="search">
+                            <input type="text" id="search-bar" placeholder="Search for artists, members, year..." oninput="searchArtists(this.value)">
                             <div id="search-results"></div>
                         </div>
+                        
                         <div class="search-icon">
                             <i class="fa fa-search"></i>
                         </div>
@@ -81,6 +82,15 @@
             <a href="/artists">Find your artist</a>
 
         </div>
+
+        <!-- Popup for displaying artist details -->
+        <div id="artist-popup" class="popup hidden">
+            <div class="popup-content" id="popup-artist-content">
+                <!-- Artist details will be loaded here -->
+            </div>
+            <span class="close-button">&times;</span>
+        </div>
+
     
      <!-- Footer -->
      <div class="footer">

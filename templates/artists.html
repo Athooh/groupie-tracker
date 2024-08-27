@@ -16,9 +16,10 @@
                 <a href="/artists">Artists</a>
             </div>
             <div class="search">
-                <input type="text" id="search-bar" oninput="searchArtists(this.value)" placeholder="Search artists...">
+                <input type="text" id="search-bar" placeholder="Search for artists, members, year..." oninput="searchArtists(this.value)">
                 <div id="search-results"></div>
             </div>
+            
             <div class="search-icon">
                 <i class="fa fa-search"></i>
             </div>
@@ -44,12 +45,14 @@
             {{end}}
         </div>
     </main>
+    <!-- Popup for displaying artist details -->
     <div id="artist-popup" class="popup hidden">
-        <div class="popup-content">
-            <span class="close-button">&times;</span>
-            <div id="popup-artist-content"></div>
+        <div class="popup-content" id="popup-artist-content">
+            <!-- Artist details will be loaded here -->
         </div>
+        <span class="close-button">&times;</span>
     </div>
+
     <div class="footer">
         <h1>G<span>r</span>o<span>u</span>p<span>i</span>e <span>T</span>r<span>a</span>c<span>k</span>e<span>r</span>s</h1>
         <p>&copy; 2024 Groupie Trackers. All rights reserved.</p>
