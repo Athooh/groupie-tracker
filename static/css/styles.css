@@ -24,19 +24,20 @@ header {
     margin: auto;
 }
 
-header img {
-    width: 50px;
-    z-index: 1;
-}
 
 header h1, .footer h1 {
     margin: 0;
     font-family: "Jacquard 12", system-ui;
     font-weight: 400;
     font-style: normal;
-    color: #adb5bd;
+    color: #00b4d8;
     font-size: 36px;
     z-index: 1;
+}
+
+header h1 span, .footer h1 span {
+    color: #fca311;
+    font-family: "Jacquard 12", system-ui;
 }
 
 header nav {
@@ -91,7 +92,7 @@ header nav a:hover {
     margin-bottom: 30px;
 }
 
-.hero-container span {
+.hero-container p span {
     color: #fca311;
     font-size: 26px;
     font-family: "Poppins", system-ui;
@@ -368,179 +369,117 @@ main {
     font-size: 25px;
 }
 
-/* Hero Banner Section */
-section.hero-banner {
-    position: relative;
-    background-image: url('/static/images/artist-detail-banner2.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 60vh;
+.hero-banner {
+    background: url('/static/images/artist-detail-banner2.jpg');
+    height: 350px;
     display: flex;
-    align-items: center;
     justify-content: center;
-    color: #adb5bd;
-    width: 100%;
-    border: none;
+    align-items: center;
+    position: relative;
 }
 
 .overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.overlay p span {
-    color: #00b4d8;
-    font-weight: bold;
-}
-
-.overlay h1 {
-    color: #00b4d8;
 }
 
 .artist-details {
+    color: #fca311;
     text-align: center;
+    position: relative;
+    z-index: 2;
+    margin-top: 20px;
 }
 
 .artist-details h1 {
     font-family: "Rock Salt", cursive;
-    font-weight: 400;
+    color: #00b4d8;
+    padding-block: 0px;
 }
+
+.artist-details img {
+    border-radius: 50%;
+    /* margin-bottom: 15px; */
+    width: 150px;
+    height: 150px;
+}
+
+.artist-details span {
+    color: #00b4d8;
+    font-weight: bold;
+}
+
 
 .artist-name {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    margin: 10px 0;
 }
 
-.creation-date, .first-album {
-    font-size: 1.2rem;
-}
-
-/* Artist Bio Section */
 .artist-bio {
-    padding: 2rem;
-    background: #0d1b2a;
-    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #333;
+    color: #adb5bd;
 }
 
-.artist-bio h2 {
-    margin-bottom: 1rem;
+.artist-bio h2, .members h2, .tour-dates-locations-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #00b4d8;
 }
 
-.artist-bio p {
-    max-width: 1000px;
-    margin: 0 auto;
+.album-container, .tour-dates-locations-container, .relations {
+    padding: 20px;
+    background-color: #333;
+    margin-top: 20px;
+    /* border-top: 1px solid #ddd; */
 }
 
-/* Albums & Members Section */
-.album-container {
-    background: #1b263b;
-}
-
-.albums-members {
+.album-container .albums-members, .tour-dates-locations {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 2rem 4em;
-    max-width: 1100px;
-    margin: auto;
-
-}
-
-.albums, .members {
-    width: 45%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-
-}
-
-.albums h2, .members h2 {
-    text-align: center;
-}
-
-
-/* Tour Dates & Locations Section */
-.tour-dates-locations-container {
-    background: #0d1b2a;
-}
-.tour-dates-locations {
-    display: flex;
-    justify-content: space-around;
-    padding: 2rem;
-    max-width: 1100px;
-    margin: auto;
-}
-
-.tour-dates, .locations {
-    width: 45%;
-    display: flex;
-    justify-content: start;
-    flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
 }
 
-.tour-dates ul, .locations ul {
-    list-style: circle;
-    padding: 0;
+.album-container .albums, .album-container .members, .tour-dates-locations .tour-dates, .tour-dates-locations .locations {
+    flex: 1;
+    padding: 10px;
 }
 
-.tour-dates ul li, .locations ul li {
-    margin-bottom: 0.5rem;
+.albums-members p {
+    color: #fca311;
 }
 
-/* Relations Section */
-.relations {
-    padding: 2rem;
-    background: #1b263b;
-    text-align: start;
+.albums-members span {
+    color: #00b4d8;
+    font-weight: bold;
 }
 
-.relations .relations-table h2 {
-    text-align: center;
+.relations-table h2 {
+    color: #00b4d8;
 }
 
-.relations .relations-table table {
+.relations-table table {
     width: 100%;
     border-collapse: collapse;
-    margin: 0 auto;
-    max-width: 800px;
 }
 
-.relations .relations-table th, .relations .relations-table td {
-    padding: 1rem;
+.relations-table th, .relations-table td {
+    padding: 10px;
     border: 1px solid #ddd;
+    text-align: left;
 }
 
-.relations .relations-table th {
-    background: #0d1b2a;
-    text-align: start;
+.call-to-action-btn {
+    margin-top: 20px;
+    text-align: center;
 }
 
-.relations .relations-table tr:nth-child(even) {
-    background: #0d1b2a;
-}
-
-.relations .call-to-action-btn {
-    margin: 40px auto;
-    width: -moz-fit-content;
-    width: fit-content;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-}
-
-
-.relations .call-to-action-btn a {
+.call-to-action-btn a {
     padding: 15px 20px;
     text-decoration: none;
     color: #fca311;
@@ -551,11 +490,18 @@ section.hero-banner {
     border: 1px solid #00b4d8;
 }
 
-.relations .call-to-action-btn a:hover {
+.call-to-action-btn a:hover {
     border: 1px solid rgba(255, 255, 255, 0.7);
     background-color: #fca311;
     transition: 2s;
     color: #fff;
+}
+
+.popup-content .footer {
+    background-color: #333;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
 } 
 
 /* search-bar */
@@ -611,10 +557,54 @@ section.hero-banner {
     background-color: transparent;
     transition: 2s;
 }
+/* POP-UP FEATURE */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background: #1b263b;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 1000px;
+    max-height: 90%;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    position: relative;
+    box-shadow: 
+        0 18px 25px rgba(0, 225, 255, 0.795),  /* Bottom shadow, more concentrated */
+        -7px 0 17px rgba(0, 225, 255, 0.795), /* Left glare */
+        7px 0 17px rgba(0, 225, 255, 0.795),  /* Right glare */
+        0 6px 13px rgba(0, 225, 255, 0.795);  /* top glare */ 
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 7px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
 
 .hamburger, .search-icon {
     display: none;
 }
+
 
 /* Responsive Design */
 @media (min-width: 600px) and (max-width: 768px) {

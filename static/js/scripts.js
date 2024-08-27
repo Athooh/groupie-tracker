@@ -51,3 +51,36 @@ document.addEventListener("DOMContentLoaded", function () {
         search.classList.toggle("active");
     });
 });
+
+// artist-detail pop-up feature
+
+document.addEventListener("DOMContentLoaded", function() {
+    const artistLinks = document.querySelectorAll("#artists-container a");
+    const popup = document.getElementById("artist-popup");
+    const closeBtn = document.querySelector(".close-button");
+    const popupContent = document.getElementById("popup-artist-content");
+
+    artistLinks.forEach(link => {
+        link.addEventListener("click", function(event) {
+            event.preventDefault();
+            const artistId = this.getAttribute("href").split("/").pop();
+
+            fetch(`/artist/${artistId}`)
+                .then(response => response.text())
+                .then(html => {
+                    popupContent.innerHTML = html;
+                    popup.classList.remove("hidden");
+                });
+        });
+    });
+
+    closeBtn.addEventListener("click", function() {
+        popup.classList.add("hidden");
+    });
+
+    window.addEventListener("click", function(event) {
+        if (event.target == popup) {
+            popup.classList.add("hidden");
+        }
+    });
+});
