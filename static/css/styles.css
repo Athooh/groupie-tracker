@@ -102,7 +102,7 @@ section.hero {
 
 .slide-track {
     display: flex;
-    width: calc(100% * 2); /* Make sure there is enough space for all slides */
+    width: calc(100% * 3); /* Make sure there is enough space for all slides */
     animation: scroll 60s linear infinite; /* Control speed */
 }
 
@@ -177,8 +177,6 @@ section.hero {
     0% { transform: translateX(0); }
     100% { transform: translateX(-100%); }
 }
-
-
 
 .footer {
     padding: 20px 200px;
