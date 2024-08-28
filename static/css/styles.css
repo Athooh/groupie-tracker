@@ -1,5 +1,6 @@
 /* General Styles */
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@400..700&family=Fredericka+the+Great&family=Jacquard+12&family=Pacifico&family=Playwrite+HR:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
 
 body {
     font-family: "poppins", sans-serif;
@@ -8,6 +9,13 @@ body {
     color: #adb5bd;
     /* background: linear-gradient(to right, #1f0021, #751006); */
     background: #0d1b2a;
+}
+h1 {
+    color: #00b4d8;
+}
+
+h1 span {
+    color: #fca311;
 }
 
 /* Header and Navigation */
@@ -61,193 +69,116 @@ header nav a {
 header nav a:hover {
     text-decoration: underline;
 }
-.hero-container {
-    background-image: url('/static/images/artist-detail-banner1.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 65vh;
-}
 
-.hero-container .overlay {
+.hero h1 {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
+    top: 20%;
+    font-size: 130px;
+    font-family: "Kaushan Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.hero img {
+    height: 600px;
+}
+
+section.hero {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
-    height: 65vh;
-}
-.hero-container h2 {
-    font-size: 45px;
-    color: #00b4d8;
-    font-family: "Rock Salt", cursive;
-    font-weight: 400;
-    font-style: normal;
-    margin-top: 120px;
-    margin-bottom: 30px;
 }
 
-.hero-container p span {
-    color: #fca311;
-    font-size: 26px;
-    font-family: "Poppins", system-ui;
-    font-weight: 300;
-    font-style: normal;
-}
-
-.hero-container .call-to-action {
-    margin-top: 50px;
-}
-
-.hero-container .call-to-action a {
-    padding: 15px 20px;
-    text-decoration: none;
-    color: #fca311;
-    border-radius: 25px;
-    letter-spacing: .6em;
-    text-transform: capitalize;
-    background-color: transparent;
-    border: 1px solid #00b4d8;
-}
-
-.hero-container .call-to-action a:hover {
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    background-color: #fca311;
-    transition: 2s;
-    color: #fff;
-}
-
-.artist-bunnar {
-    height: 20vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-}
-
-.artist-bunnar h2 {
-    color: #00b4d8;
-    font-size: 35px;
-    text-transform: capitalize;
-    font-weight: 400;
-    text-align: center;
-}
-
-.artist-bunnar a {
-    padding: 15px 20px;
-    text-decoration: none;
-    color: #fca311;
-    border-radius: 25px;
-    letter-spacing: .6em;
-    text-transform: capitalize;
-    background-color: transparent;
-    border: 1px solid #00b4d8;
-}
-
-.artist-bunnar a:hover {
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    background-color: #fca311;
-    transition: 2s;
-    color: #fff;
-}
-
-.content-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 50px;
-    /* background-color: #f9f9f9; */
-    margin-top: 30px;
-    color: #adb5bd;
-    padding-inline: 200px;
-    background: #1b263b;
-}
-
-.content-section img {
-    width: 50%;
-    border-radius: 10px;
-}
-
-.content-section h2 {
-    color: #00b4d8;
-}
-
-.content-text {
-    width: 45%;
-    font-size: 18px;
-    line-height: 1.6;
-}
-
-.content-text h2 {
-    margin-bottom: 0;
-    font-weight: 400;
-    font-size: 35px;
-}
-
-.stats-section {
-    padding-block: 20px;
-    text-align: center;
-}
-
-.stats-section .line, .content-text .line {
-    width: 200px;
-    border: 2px solid #fca311;
-    margin: 10px auto;
-}
-
-.content-text .line {
-    margin-left: 0;
-}
-
-.stats-section h2 {
-    color: #00b4d8;
-    font-size: 35px;
-    font-weight: 400;
-    margin-bottom: 0;
-}
-
-.stats-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-inline: 200px;
-}
-
-.stat-item {
-    width: 20%;
-    color: #fca311;
-}
-
-.stat-item span {
-    font-size: 45px;
-    font-weight: 700;
-    color: #00b4d8;
-}
-
-.stat-item h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #adb5bd;
-    font-weight: 600;
-}
-
-.progress-bar {
-    /* background-color: #ddd; */
-    border-radius: 20px;
+/* Slider Styles */
+.slider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     overflow: hidden;
-    border: 1px solid #fff;
+    z-index: 10; /* Ensure it stays on top of other content */
 }
 
-.progress-bar div {
-    height: 20px;
-    background-color: #415a77;
-    width: 70%;
+.slide-track {
+    display: flex;
+    width: calc(100% * 2); /* Make sure there is enough space for all slides */
+    animation: scroll 60s linear infinite; /* Control speed */
 }
+
+.slide-item {
+    flex: 1 1 40%; /* Each item takes 25% of the slider width, so 4 items fit */
+    box-sizing: border-box;
+    padding: 10px;
+    background: #fca311;
+    color: #0d1b2a;
+    text-align: start;
+    font-size: 14px;
+    border-right: 2px solid #fff; /* Separator between items */
+}
+
+.slide-item span {
+    margin-left: 40px;
+}
+
+.slide-item.arrow-up i {
+    background-color: #138808;
+    padding: 8px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 10px;
+    margin-right: 10px;
+}
+
+.slide-item.arrow-down i{
+    background-color: #CE2029;
+    padding: 8px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 10px;
+    margin-right: 10px;
+}
+/* socials */
+.socials-container {
+    position: fixed;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+
+.socials-container .socials {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.socials a {
+    display: block;
+    margin: 10px 0;
+    font-size: 18px;
+    padding: 15px 20px;
+    border: 1px solid #00b4d8;
+    border-radius: 50%;
+    text-decoration: none;
+    color: #fca311;
+}
+
+.socials a:hover {
+    background-color: #fca311;
+    color: #fff;
+    transition: 2s;
+
+}
+
+/* Animation for smooth sliding */
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+
 
 .footer {
     padding: 20px 200px;

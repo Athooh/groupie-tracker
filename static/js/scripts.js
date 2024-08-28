@@ -1,5 +1,6 @@
 // Function to search for artists based on user query
 function searchArtists(query) {
+    console.log("Search query:", query);
     const resultsContainer = document.getElementById('search-results');
 
     // Clear previous results if query is empty
@@ -110,5 +111,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
     searchIcon.addEventListener("click", () => {
         search.classList.toggle("active");
+    });
+});
+
+
+// Optional: Additional configuration if you want to control the slider behavior.
+document.addEventListener('DOMContentLoaded', function() {
+    const slideTrack = document.querySelector('.slide-track');
+    const slideItems = document.querySelectorAll('.slide-item');
+
+    // Clone the slide items to make the slider continuous
+    slideItems.forEach(item => {
+        slideTrack.appendChild(item.cloneNode(true));
     });
 });
