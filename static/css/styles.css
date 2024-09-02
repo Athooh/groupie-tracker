@@ -688,7 +688,12 @@ main {
 
 /* Styles for mobile screens */
 @media (max-width: 599px) {
+    body {
+        height: 100vh;
+    }
+
     header {
+        max-width: 100%;
         padding: 15px;
         display: flex;
         justify-content: space-between;
@@ -700,20 +705,12 @@ main {
         font-size: 22px;
     }
 
-    /* .hero-container {
-        background-size: 100%;
-        height: 400px;
-    } */
 
     header nav {
         /* width: 100%; */
         display: flex;
         justify-content: space-between;
         align-items: center;
-    }
-
-    header img {
-        display: none;
     }
 
     header h1 {
@@ -770,103 +767,66 @@ main {
         margin-top: 100px;
     }
 
-    .hero-container {
-        max-height: 330px;
+    section.hero {
+        margin-top: 45%;
     }
 
-    .hero-container h2, .hero-container span {
-        margin-block: 0;
-        margin-inline: 20px;
+    section.hero img {
+        height: 300px;
     }
 
-    .hero-container .call-to-action {
-        margin-top: 0;
-        margin-inline: 20px;
+    section.hero h1 {
+        font-size: 45px;
+        top: 10%;
     }
 
-    .hero-container .call-to-action a {
-        padding: auto;
-        letter-spacing: .4em;
+    .socials-container {
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        right: auto;
     }
 
-    .hero-container span {
-        font-size: 16px;
+    .socials-container .socials {
+        position: relative;
+        flex-direction: row;
     }
-
-    .stats-section h2 {
-        font-size: 22px;
+    
+    .socials a {
+        margin: 10px;
+        font-size: 15px;
+        padding: 12px 17px;
     }
-
-    .stats-section .line {
-        width: 150px;
+ 
+    section.billboard {
+        /* position: relative; Ensure it positions relative to the body */
+        margin: 0; /* Remove any margin */
+        padding: 0; /* Remove any padding */
     }
-
-    .stat-item {
+     
+    /* Slider Styles */
+    .slider {
+        /* position: relative; */
+        bottom: 0;
+        left: 0;
         width: 100%;
+        overflow: hidden;
     }
-
-    .stat-item h3 {
-        font-size: 18px;
+    
+    /* Adjust the slide track to avoid overflow and spacing issues */
+    .slide-track {
+        width: calc(100% * 1); /* Make sure there is enough space for all slides */
+        animation: scroll 10s linear infinite; /* Control speed */
+        margin: 0; /* Remove margin */
+        padding: 0; /* Remove padding */
     }
-
-    .stat-item span {
-        font-size: 30px;
-    }
-
-    .stats-container {
-        flex-direction: column;
-        margin-inline: 20px;
-        padding: 0;    
-    }
-
-    .content-section {
-        flex-direction: column;
-        padding: 0;
-        margin: 30px 0;
-        background: none;
-    }
-
-    .content-section img {
-        width: 100%;
-        border-radius: 0;
-    }
-
-    .content-text {
-        width: 100%;
-        margin-inline: 20px;
-    }
-
-    .content-text h2 {
-        font-size: 22px;
-        text-align: center;
-        margin-top: 20px;
-    }
-
-    .content-section .line {
-        width: 150px;
-        margin: 10px auto;
-    }
-
-    .content-text p {
-        font-size: 16px;
-        width: 90%;
-        margin-inline: 20px;
-        word-wrap: wrap;
-        /* padding-inline: 20px; */
-    }
-
-    .artist-bunnar {
-        flex-direction: column;
-        /* background: linear-gradient(to right, #e01f2d, #943c22); */
-        gap: 0;
-        height: max-content;
-        padding-block: 10px;
-        background-image: url('/static/images/bunnar.png');
-
-    }
-
-    .artist-bunnar h2 {
-        font-size: 22px;
+    
+    /* Adjust the individual slide items to prevent unnecessary spacing */
+    .slide-item {
+        flex: 0 0 100%; /* Each item takes 40% of the slider width */
+        box-sizing: border-box;
+        padding: 10px;
     }
 
     .footer {
