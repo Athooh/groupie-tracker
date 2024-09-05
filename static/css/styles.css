@@ -368,6 +368,7 @@ main {
 }
 
 .album-container, .tour-dates-locations-container, .relations {
+    width: auto;
     padding: 20px;
     background-color: #333;
     margin-top: 20px;
@@ -692,6 +693,10 @@ main {
         height: 100vh;
     }
 
+    p {
+        font-size: 13px;
+    }
+
     header {
         max-width: 100%;
         padding: 15px;
@@ -772,6 +777,7 @@ main {
     }
 
     section.hero img {
+        width: 100%;
         height: 300px;
     }
 
@@ -830,15 +836,11 @@ main {
     }
 
     .footer {
-        width: 100%;
+        max-width: 100%;
         margin: 30 auto 0;
         flex-direction: column;
         padding-inline: 0;
         bottom: 0;
-    }
-
-    .footer img {
-        display: none;
     }
 
     #artists-container {
@@ -867,5 +869,46 @@ main {
     header nav a {
         display: block;
         margin: 5px 0;
+    }
+
+    .albums-members {
+        flex-direction: column;
+    }
+
+    .members h2, .members p, .tour-dates h2, .locations h2 {
+        text-align: center;
+    }
+    .tour-dates, .locations {
+        width: 45%;
+    }
+
+    .tour-dates ul, .locations ul {
+        padding-left: 15px;
+    }
+
+    .tour-dates li, .locations li {
+        font-size: 13px;
+    }
+
+    section.tour-dates-locations-container {
+        padding-inline: 0px;
+    }
+
+    .relations h2 {
+        text-align: center;
+    }
+
+    .relations td {
+        font-size: 13px;
+        width: 45%;
+    }
+
+    .relations .call-to-action-btn a {
+        font-size: 14px;
+        letter-spacing: .3em;
+    }
+    .artist-details h1 {
+        font-size: 20px;
+        margin-block: 5px;
     }
 }
