@@ -97,12 +97,24 @@ func SearchHandler(w http.ResponseWriter, r *http.Request) {
 	var results []map[string]string
 
 	if query != "" {
+		// Search by artist name, member, first album, etc.
 		for _, artist := range artists {
 			types := artist.SearchResultType(query)
 			for _, resultType := range types {
 				results = append(results, map[string]string{
 					"name": resultType,
 					"id":   strconv.Itoa(artist.ID),
+				})
+			}
+		}
+
+		// Search by location
+		for _, relation := range relationsData.Index {
+			locationResults := relation.SearchArtistsByLocation(query, artists)
+			for _, result := range locationResults {
+				results = append(results, map[string]string{
+					"name": result,
+					"id":   strconv.Itoa(relation.ID),
 				})
 			}
 		}
