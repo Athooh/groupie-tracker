@@ -3,20 +3,13 @@ function searchArtists(query) {
     console.log("Search query:", query);
     const resultsContainer = document.getElementById('search-results');
 
-    // Clear previous results if query is empty
     if (query.length === 0) {
         resultsContainer.innerHTML = '';
         return;
     }
 
-    // Fetch matching artists from the server
     fetch(`/search?q=${encodeURIComponent(query)}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
+        .then(response => response.json())
         .then(data => {
             resultsContainer.innerHTML = '';
 
@@ -26,77 +19,50 @@ function searchArtists(query) {
                 resultItem.className = 'search-result-item';
                 resultItem.textContent = result.name;
 
-                // Set up click event to fetch and display artist details
+                // Direct the user to the artist detail page
                 resultItem.onclick = function() {
-                    const artistId = result.id;
-
-                    fetch(`/artist/${artistId}`)
-                        .then(response => {
-                            if (!response.ok) {
-                                throw new Error('Failed to fetch artist details');
-                            }
-                            return response.text();
-                        })
-                        .then(html => {
-                            const popup = document.getElementById("artist-popup");
-                            const popupContent = document.getElementById("popup-artist-content");
-                            popupContent.innerHTML = html;
-                            popup.classList.remove("hidden");
-                        })
-                        .catch(error => {
-                            console.error('Error fetching artist details:', error);
-                            // Handle error display if needed
-                        });
+                    window.location.href = `/artist/${result.id}`;
                 };
+
                 resultsContainer.appendChild(resultItem);
             });
         })
         .catch(error => console.error('Error fetching search results:', error));
 }
 
-// Initialize existing popup functionality for artist detail pages
+// Initialize map for artist details page
 document.addEventListener("DOMContentLoaded", function() {
-    const artistLinks = document.querySelectorAll("#artists-container a");
-    const popup = document.getElementById("artist-popup");
-    const closeBtn = document.querySelector(".close-button");
-    const popupContent = document.getElementById("popup-artist-content");
-
-    // Set up click events for artist links
-    artistLinks.forEach(link => {
-        link.addEventListener("click", function(event) {
-            event.preventDefault();
-            const artistId = this.getAttribute("href").split("/").pop();
-
-            fetch(`/artist/${artistId}`)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Failed to fetch artist details');
-                    }
-                    return response.text();
-                })
-                .then(html => {
-                    popupContent.innerHTML = html;
-                    popup.classList.remove("hidden");
-                })
-                .catch(error => {
-                    console.error('Error fetching artist details:', error);
-                    // Handle error display if needed
-                });
-        });
-    });
-
-    // Close popup when close button is clicked
-    closeBtn.addEventListener("click", function() {
-        popup.classList.add("hidden");
-    });
-
-    // Close popup when clicking outside of it
-    window.addEventListener("click", function(event) {
-        if (event.target == popup) {
-            popup.classList.add("hidden");
-        }
-    });
+    const mapContainer = document.getElementById('map');
+    if (mapContainer) {
+        initializeMapbox();
+    }
 });
+
+function initializeMapbox() {
+    mapboxgl.accessToken = 'pk.eyJ1IjoiYXRob29oIiwiYSI6ImNtMWY2N3prZjJsN3MybHNjMWd3bThzOXcifQ.HNgAHQBkzGdrnuS1MtwYlQ';
+
+    const concertLocations = JSON.parse(document.getElementById('ConcertLocationsJSON').innerText);
+
+    const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [0, 0],
+        zoom: 2 // Default zoom level
+    });
+
+    concertLocations.forEach(function(location) {
+        const popup = new mapboxgl.Popup({ offset: 25 }).setText(location.locationName);
+
+        new mapboxgl.Marker()
+            .setLngLat(location.coordinates)
+            .setPopup(popup)
+            .addTo(map);
+    });
+
+    // Ensure that the map resizes correctly
+    map.resize();
+}
+
 
 // Toggle functionality for search bar and navigation links
 document.addEventListener("DOMContentLoaded", function() {
@@ -125,3 +91,4 @@ document.addEventListener('DOMContentLoaded', function() {
         slideTrack.appendChild(item.cloneNode(true));
     });
 });
+
