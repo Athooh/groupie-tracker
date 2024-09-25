@@ -92,3 +92,34 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+
+
+// header scrolls
+
+document.addEventListener('DOMContentLoaded', function () {
+    const header = document.querySelector('header');
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    let lastScrollY = window.scrollY;
+
+    // Hide/Show Header on Scroll
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > lastScrollY) {
+            header.style.top = '-100px';  // Hide header on scroll down
+        } else {
+            header.style.top = '0';       // Show header on scroll up
+        }
+        lastScrollY = window.scrollY;
+    });
+});
+
+// Hamburger menu functionality
+document.addEventListener('DOMContentLoaded', function () {
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        hamburger.classList.toggle('active'); // Toggles the "X" icon
+    });
+});
