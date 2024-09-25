@@ -92,8 +92,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-
-
 // header scrolls
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -114,12 +112,18 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Hamburger menu functionality
-document.addEventListener('DOMContentLoaded', function () {
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+const menuLinks = document.querySelectorAll('.menu-link');
 
-    hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        hamburger.classList.toggle('active'); // Toggles the "X" icon
+// toggle the navigation menu on hamburger click
+hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
+});
+
+// class the menu when a menu link is clicked
+menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('show');
     });
 });

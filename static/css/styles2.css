@@ -47,11 +47,20 @@ header nav {
     margin-right: 7rem;
 }
 
-header .logo h1 {
+header .logo h1, .footer h1 {
     font-size: 26px;
     font-family: 'Kaushan Script', cursive;
 }
 
+.footer i {
+    font-size: 55px;
+    padding-inline: 5px;
+}
+
+.footer i:hover {
+    color: #fca311;
+}
+/* 
 header .nav-links {
     display: flex;
     justify-content: flex-end;
@@ -87,6 +96,47 @@ header .nav-links a::before {
 
 header .nav-links a:hover::before {
     width: 100%;
+} */
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav ul li a {
+    color: #fca311;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    position: relative;
+    padding: 5px 0;
+}
+
+nav ul li a:hover {
+    color: #00f2fe;
+}
+
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #00f2fe;
+    bottom: 0;
+    left: 0;
+    transition: 0.4s;
+}
+
+nav ul li a:hover::before {
+    width: 100%;
 }
 
 /* Hamburger Menu for Mobile */
@@ -95,6 +145,30 @@ header .nav-links a:hover::before {
     font-size: 28px;
     cursor: pointer;
 }
+
+/* .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 250px;
+    height: 100%;
+    background-color: #001f54;
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 5px rgb(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.nav-menu.show {
+    right: 0;
+}
+
+.menu-link {
+    transition: background-color 0.3s ease;
+}
+
+.menu-link:hover {
+    background-color: #555;
+} */
 
 .hero h1 {
     position: absolute;
@@ -331,13 +405,12 @@ main {
 }
 
 .hero-banner {
-    margin-top: 6rem;
+    margin-top: 7rem;
     background: url('/static/images/artist_detail_banner.png');
     height: 350px;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* position: relative; */
 }
 
 .artist-details {
@@ -365,10 +438,6 @@ main {
     color: #00b4d8;
     font-weight: bold;
 }
-
-/* .albums img, .albums p {
-    margin-left: 5rem;
-} */
 
 
 .artist-name {
@@ -565,6 +634,7 @@ section.relations {
     width: 230px;
     background: transparent;
     color: #fff;
+    margin-right: 7rem;
 }
 
 #search-results {
@@ -574,7 +644,7 @@ section.relations {
     max-height: 200px;
     overflow-y: auto;
     width: 223px;
-    z-index: 1000;
+    /* z-index: 1000; */
     margin-left: 15px;
     border-radius: 6px;
     color: #fca311;
@@ -634,6 +704,8 @@ section.map-container {
         padding-inline: 7rem;
     }
 }
+    
+
 
 @media (max-width: 768px) {
     header {
@@ -651,13 +723,44 @@ section.map-container {
         display: block;
     }
 
-    .search {
-        float: right;
+    .hamburger {
+        display: block;
     }
 
-    .hamburger.active i {
-        transform: rotate(90deg);
-        transition: transform 0.3s ease-in-out;
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -380px;
+        width: 200px;
+        height: 100vh;
+        background-color: #001f54;
+        transition: right 0.4s ease;
+        box-shadow: -2px 0 5px rgb(0, 0, 0, 0.5);
+        z-index: 1000;
+        margin-right: 0;
+    }
+
+    .nav-menu ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .nav-menu.show {
+        right: 0;
+    }
+
+    .menu-link {
+        transition: background-color 0.3s ease;
+    }
+
+    .menu-link:hover {
+        background-color: #555;
+    }
+
+    #search-bar {
+        margin-right: 3.5rem;
     }
 }
 
@@ -796,10 +899,12 @@ section.map-container {
         float: right;
     }
 
-    .hamburger.active i {
+
+
+    /* .hamburger.active i {
         transform: rotate(90deg);
         transition: transform 0.3s ease-in-out;
-    }
+    } */
 
     .hero-container h2 {
         font-size: 22px;
