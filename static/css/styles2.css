@@ -245,7 +245,6 @@ section.hero {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 
 .footer a i {
@@ -604,8 +603,8 @@ section.relations {
 
 #search-results {
     position: absolute;
-    border: 2px solid #fca311;
-    border-top: none;
+    /* border: 2px solid #fca311; */
+    border: none;
     max-height: 200px;
     overflow-y: auto;
     width: 223px;
@@ -613,6 +612,7 @@ section.relations {
     margin-left: 15px;
     border-radius: 6px;
     color: #fca311;
+    background-color: #14213d;
 }
 
 .search-result-item {
@@ -624,8 +624,9 @@ section.relations {
 }
 
 .search-result-item:hover {
-    background-color: #138808;
+    background-color: #fca311;
     text-decoration: underline;
+    color: #14213d;
 }
 
 .call-to-action-err-btn {
@@ -668,13 +669,18 @@ section.map-container {
     .footer {
         padding-inline: 4rem;
     }
+
+    header {
+        height: 20px;
+    }
+
     header nav {
         display: none;
     }
 
     .hamburger {
         display: block;
-        margin-left: 2rem;
+        /* margin-left: 2rem; */
     }
 
     header .logo {
@@ -757,6 +763,11 @@ section.map-container {
     #search-bar {
         margin-right: 0;
     }
+
+    .footer .footer h1, .footer p {
+        padding-block: 0;
+        margin-block: 0;
+    }
 }
     
 
@@ -771,6 +782,7 @@ section.map-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        height: 20px;
     }
 
     header .logo {
@@ -881,6 +893,10 @@ section.map-container {
     .footer {
         padding-inline: 1.5rem;
     }
+    .footer .footer h1, .footer p {
+        padding-block: 0;
+        margin-block: 0;
+    }
 }
 
 /* Styles for mobile screens */
@@ -902,6 +918,7 @@ section.map-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        height: 20px;
     }
 
     header .logo {
@@ -1061,7 +1078,7 @@ section.map-container {
 
     .footer {
         max-width: 100%;
-        margin: 30 auto 0;
+        margin: 0 auto;
         flex-direction: column;
         padding-inline: 0;
         bottom: 0;
@@ -1130,6 +1147,10 @@ section.map-container {
         font-size: 20px;
         margin-block: 5px;
     }
+    .footer .footer h1, .footer p {
+        padding-block: 0;
+        margin-block: 0;
+    }
 }
 
 @media (max-width: 344px) {
@@ -1138,8 +1159,8 @@ section.map-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        height: 20px;
     }
-
    
     .hamburger {
         display: block;
@@ -1203,8 +1224,8 @@ section.map-container {
         0%, 20%, 50%, 80%, 100% {
             transform: translateY(0);
         }
-
     }
+
     header .logo {
         display: none;
     }
@@ -1215,6 +1236,11 @@ section.map-container {
 
     #map {
         height: 300px;
+    }
+
+    .footer .footer h1, .footer p {
+        padding-block: 0;
+        margin-block: 0;
     }
 
 }
