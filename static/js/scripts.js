@@ -47,7 +47,7 @@ function initializeMapbox() {
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
         center: [0, 0],
-        zoom: 2 // Default zoom level
+        zoom: 1 // Default zoom level
     });
 
     concertLocations.forEach(function(location) {
@@ -65,20 +65,20 @@ function initializeMapbox() {
 
 
 // Toggle functionality for search bar and navigation links
-document.addEventListener("DOMContentLoaded", function() {
-    const hamburger = document.querySelector(".hamburger");
-    const navLinks = document.querySelector(".nav-links");
-    const searchIcon = document.querySelector(".search-icon");
-    const search = document.querySelector(".search");
+// document.addEventListener("DOMContentLoaded", function() {
+//     const hamburger = document.querySelector(".hamburger");
+//     const navLinks = document.querySelector(".nav-links");
+//     const searchIcon = document.querySelector(".search-icon");
+//     const search = document.querySelector(".search");
 
-    hamburger.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-    });
+//     hamburger.addEventListener("click", () => {
+//         navLinks.classList.toggle("active");
+//     });
 
-    searchIcon.addEventListener("click", () => {
-        search.classList.toggle("active");
-    });
-});
+//     searchIcon.addEventListener("click", () => {
+//         search.classList.toggle("active");
+//     });
+// });
 
 
 // Optional: Additional configuration if you want to control the slider behavior.
@@ -111,19 +111,27 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// Hamburger menu functionality
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('nav-menu');
-const menuLinks = document.querySelectorAll('.menu-link');
+// // Hamburger menu functionality
+// const hamburger = document.getElementById('hamburger');
+// const navMenu = document.getElementById('nav-menu');
+// const menuLinks = document.querySelectorAll('.menu-link');
 
-// toggle the navigation menu on hamburger click
-hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('show');
-});
+// // toggle the navigation menu on hamburger click
+// hamburger.addEventListener('click', () => {
+//     navMenu.classList.toggle('show');
+// });
 
-// class the menu when a menu link is clicked
-menuLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('show');
-    });
+// // class the menu when a menu link is clicked
+// menuLinks.forEach(link => {
+//     link.addEventListener('click', () => {
+//         navMenu.classList.remove('show');
+//     });
+// });
+
+document.getElementById('hamburger').addEventListener('click', function() {
+    const navMenu = document.getElementById('nav-menu');
+    navMenu.classList.toggle('active');
+
+    // Toggle no-scroll class to prevent body from scrolling when menu is open
+    document.body.classList.toggle('no-scroll');
 });

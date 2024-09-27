@@ -20,17 +20,19 @@
         <div class="hamburger" id="hamburger">
             <i class="fa fa-bars"></i>
         </div>
-        <nav class="nav-menu" id="nav-menu">
-            <ul>
-                <li><a href="/" class="menu-link">Home</a></li>
-                <li><a href="/artists" class="menu-link">Artists</a></li>
-            </ul>
-            <!-- Add this to your index.html header or wherever appropriate -->
-        </nav>
-        <div class="search">
-            <input type="text" id="search-bar" placeholder="Search for artists, members, year..." oninput="searchArtists(this.value)">
-            <div id="search-results"></div>
-        </div>
+        <div class="header-navlinks">
+            <nav class="nav-menu" id="nav-menu">
+                <ul>
+                    <li><a href="/" class="menu-link">Home</a></li>
+                    <li><a href="/artists" class="menu-link">Artists</a></li>
+                </ul>
+                <!-- Add this to your index.html header or wherever appropriate -->
+            </nav>
+            <div class="search">
+                <input type="text" id="search-bar" placeholder="Search for artists, members, year..." oninput="searchArtists(this.value)">
+                <div id="search-results"></div>
+            </div>
+            </div>
 </header>
     <!-- Hero Banner -->
     <section class="hero-banner">
@@ -63,7 +65,7 @@
         <!-- Map Container -->
         <section class="map-container">
             <h2>Concert Locations</h2>
-            <div id="map" style="width: 100%; height: 600px;"></div>
+            <div id="map"></div>
         </section>
 
     <!-- Albums & Members -->
