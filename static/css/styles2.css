@@ -301,10 +301,17 @@ main {
     color: #fca311;
 }
 
-.card:hover {
+.card:hover, .card.selected {
     transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 225, 255, 0.795); /* Glaring bluish shadow on hover */
+    box-shadow: 0 8px 16px rgba(0, 225, 255, 0.795); /* Glaring bluish shadow on hover or select */
 }
+
+.card:focus, .card.selected {
+    outline: none;
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 225, 255, 0.795); /* Glaring bluish shadow on hover or select */
+}
+
 
 .card h3:hover {
     transform: scale(1.1);
@@ -592,23 +599,28 @@ section.relations {
 
 /* search-bar */
 #search-bar {
-    padding: 10px;
-    border: 2px solid #fca311;
+    font-size: 14px;
+    padding: 12px;
+    border: 1px solid #fca311;;
     border-radius: 25px;
     width: 230px;
     background: transparent;
-    color: #fff;
-    /* margin-right: 7rem; */
+    color: #fca311;
+}
+#search-bar:focus, #search-bar.selected {
+    outline: none;
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 225, 255, 0.795); /* Glaring bluish shadow on hover or select */
 }
 
 #search-results {
     position: absolute;
-    /* border: 2px solid #fca311; */
+    /* border: 1px solid #00b4d8; */
     border: none;
     max-height: 200px;
     overflow-y: auto;
     width: 223px;
-    /* z-index: 1000; */
+    z-index: 1000;
     margin-left: 15px;
     border-radius: 6px;
     color: #fca311;
@@ -619,14 +631,17 @@ section.relations {
     padding: 5px;
     cursor: pointer;
     text-align: start;
-    padding-left: 5px;
-    border-radius: 10px;
+    border-bottom: 1px solid #00b4d8;
 }
 
-.search-result-item:hover {
+
+#search-results div:last-child {
+    border-bottom: none;
+}
+
+.search-result-item:hover, .highlighted {
     background-color: #fca311;
-    text-decoration: underline;
-    color: #14213d;
+    color: #f0f0f0;
 }
 
 .call-to-action-err-btn {
@@ -665,13 +680,13 @@ section.map-container {
 }
 
 /* Responsive Design */
-@media (max-width: 1200px) {
+@media (min-width: 769px) and (max-width: 1200px) {
     .footer {
         padding-inline: 4rem;
     }
 
     header {
-        height: 20px;
+        height: 50px;
     }
 
     header nav {
@@ -680,7 +695,7 @@ section.map-container {
 
     .hamburger {
         display: block;
-        /* margin-left: 2rem; */
+        margin-left: 2rem;
     }
 
     header .logo {
@@ -791,6 +806,7 @@ section.map-container {
 
     .hamburger {
         display: block;
+        margin-left: 0;
     }
 
     /* Hide the menu by default */
@@ -1164,6 +1180,7 @@ section.map-container {
    
     .hamburger {
         display: block;
+        margin-left: 0;
     }
 
     /* Hide the menu by default */

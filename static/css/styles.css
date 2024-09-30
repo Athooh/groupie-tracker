@@ -249,40 +249,51 @@ section.hero {
 
 /* search-bar */
 #search-bar {
-    padding: 10px;
-    border: 2px solid #fca311;
+    font-size: 14px;
+    padding: 12px;
+    border: 1px solid #fca311;;
     border-radius: 25px;
     width: 230px;
     background: transparent;
-    color: #fff;
+    color: #fca311;
+}
+
+#search-bar:focus, #search-bar.selected {
+    outline: none;
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 225, 255, 0.795); /* Glaring bluish shadow on hover or select */
 }
 
 #search-results {
     position: absolute;
-    /* border: 2px solid #fca311; */
-    border: none;
+    /* border: 1px solid #00b4d8; */
+    /* border: none; */
     max-height: 200px;
     overflow-y: auto;
     width: 223px;
-    /* z-index: 1000; */
+    z-index: 1000;
     margin-left: 15px;
     border-radius: 6px;
     color: #fca311;
     background-color: #14213d;
 }
 
+
 .search-result-item {
     padding: 5px;
     cursor: pointer;
     text-align: start;
-    padding-left: 5px;
-    border-radius: 10px;
+    border-bottom: 1px solid #00b4d8;
 }
 
-.search-result-item:hover {
+
+/* #search-results div:last-child {
+    border-bottom: none;
+} */
+
+.search-result-item:hover, .highlighted {
     background-color: #fca311;
-    text-decoration: underline;
-    color: #14213d;
+    color: #f0f0f0;
 }
 
 .hidden {
@@ -950,6 +961,49 @@ section.hero {
         margin-left: 40px;
     }
 }
+
+@media (min-width: 901px) and (max-width: 1024px) and (orientation: portrait){
+    header {
+        padding: 20px 7rem;
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        max-width: 100%;
+        margin-right: 0%;
+        padding-inline: 5px;
+    }
+
+    header h1, .footer h1 {
+        /* margin: 0; */
+        font-family: "Jacquard 12", system-ui;
+        font-weight: 400;
+        font-style: normal;
+        color: #00b4d8;
+        font-size: 29px;
+        z-index: 1;
+        margin-inline: 5px;
+    }
+
+    .hero h1 {
+        position: absolute;
+        top: 5%;
+        font-size: 8rem;
+        font-family: "Kaushan Script", cursive;
+        font-weight: 400;
+        font-style: normal;
+    }
+    
+    .hero img {
+        max-width: 100%;
+        /* height: auto; */
+        height: 600px;
+        top: 30%;
+        position: absolute;
+    }
+}
+
 @media (min-width: 901px) and (max-width: 1024px) and (orientation: landscape){
     /* Header and Navigation */
     header {

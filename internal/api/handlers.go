@@ -48,7 +48,7 @@ func RenderError(w http.ResponseWriter, status int, message string) {
 // IndexHandler handles requests to the home page
 func IndexHandler(w http.ResponseWriter, r *http.Request) {
 	err := templates.ExecuteTemplate(w, "index.html", nil)
- 	if err != nil {
+	if err != nil {
 		RenderError(w, http.StatusInternalServerError, "Error loading the homepage")
 	}
 }
