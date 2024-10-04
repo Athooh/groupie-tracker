@@ -1,4 +1,3 @@
-Here's an updated version of your README file that incorporates the newly added features such as arrow navigation, pagination, media responsiveness, and geolocation for pinpointing concert locations.
 
 ---
 
